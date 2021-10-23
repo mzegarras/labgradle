@@ -1,5 +1,6 @@
 package cloud.csonic.labgradle.api
 
+import cloud.csonic.labgradle.excepions.CustomerNotFound
 import cloud.csonic.labgradle.model.Customer
 import cloud.csonic.labgradle.service.CustomerService
 import com.ninjasquad.springmockk.MockkBean
@@ -90,6 +91,28 @@ internal class CustomersApiTest(@Autowired val mockMvc: MockMvc) {
         verify(exactly = 1) { customerService.findById(1) }
         confirmVerified(customerService)
 
+    }
+
+    @Test
+    fun `customer didn't find`() {
+
+        // Preparing data
+
+
+        // Mocks & Stubs configuration
+
+        every { customerService.findById(1) } throws CustomerNotFound("Cliente no encontrado")
+
+
+        // Business logic execution
+        mockMvc.perform(get("/customers/1"))
+            .andExpect(status().isNotFound)
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+        // Validating results
+
+        // Validating mocks behaviour
+        verify(exactly = 1) { customerService.findById(1) }
+        confirmVerified(customerService)
 
     }
 }

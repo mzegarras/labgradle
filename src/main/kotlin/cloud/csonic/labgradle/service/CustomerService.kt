@@ -1,5 +1,6 @@
 package cloud.csonic.labgradle.service
 
+import cloud.csonic.labgradle.excepions.CustomerNotFound
 import cloud.csonic.labgradle.model.Customer
 import org.springframework.stereotype.Service
 
@@ -17,7 +18,7 @@ class CustomerServiceImpl: CustomerService{
     )
 
     override fun findAll() = list
-    override fun findById(id:Long) = list[0]
+    override fun findById(id:Long) = list.find { it.id==id } ?: throw CustomerNotFound("Cliente $id no encontrado")
 
 
 }
