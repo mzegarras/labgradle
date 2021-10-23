@@ -33,9 +33,6 @@ dependencies {
 
 	testImplementation("org.junit.jupiter:junit-jupiter-api")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-	//testImplementation("org.junit.jupiter:junit-jupiter-params")
-	//testImplementation("org.junit.vintage:junit-vintage-engine")
-	//testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 
 
 
@@ -54,21 +51,6 @@ tasks.withType<Test> {
 
 	// Enable JUnit 5 (Gradle 4.6+).
 	useJUnitPlatform()
-//	{
-//		includeEngines("junit-jupiter")
-//		excludeEngines("junit-vintage")
-//	}
-//
-//	reports{
-//		junitXml.required.set(true)
-//
-//	}
-//
-//
-//	testLogging{
-//		exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
-//		events( "started", "passed", "skipped", "failed", "standardOut", "standardError")
-//	}
 }
 
 
