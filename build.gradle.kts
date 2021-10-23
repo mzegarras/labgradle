@@ -53,22 +53,22 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 
 	// Enable JUnit 5 (Gradle 4.6+).
-	useJUnitPlatform(){
-		includeEngines("junit-jupiter")
-		excludeEngines("junit-vintage")
-	}
-	reports{
-		junitXml.required.set(true)
-
-	}
-
-
-	testLogging{
-		exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
-		events( "started", "passed", "skipped", "failed", "standardOut", "standardError")
-
-
-	}
+	useJUnitPlatform()
+//	{
+//		includeEngines("junit-jupiter")
+//		excludeEngines("junit-vintage")
+//	}
+//
+//	reports{
+//		junitXml.required.set(true)
+//
+//	}
+//
+//
+//	testLogging{
+//		exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+//		events( "started", "passed", "skipped", "failed", "standardOut", "standardError")
+//	}
 }
 
 
