@@ -107,7 +107,6 @@ internal class CustomersApiTest(@Autowired val mockMvc: MockMvc) {
         // Business logic execution
         mockMvc.perform(get("/customers/1"))
             .andExpect(status().isNotFound)
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         // Validating results
 
         // Validating mocks behaviour
