@@ -5,6 +5,10 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	kotlin("jvm") version "1.5.31"
 	kotlin("plugin.spring") version "1.5.31"
+
+	idea
+	java
+	jacoco
 }
 
 group = "cloud.csonic"
@@ -53,4 +57,9 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
-
+tasks.test {
+	finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+}
+tasks.jacocoTestReport {
+	dependsOn(tasks.test) // tests are required to run before generating the report
+}
